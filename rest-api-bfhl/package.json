@@ -4,7 +4,7 @@
   "main": "api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":  "node api/index.js"
+    "start": "node api/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "description": "As part Bajaj placement exam I am building this application",
   "dependencies": {
     "base-64": "^1.0.0",
+    "cors": "^2.8.5",
     "express": "^4.21.0",
     "is-base64": "^1.1.0"
   }
