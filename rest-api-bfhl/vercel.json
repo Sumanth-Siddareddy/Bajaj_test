@@ -1,10 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "api/index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/api/index.js" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend-api-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend-api-app/build",
+        "buildCommand": "npm run build"
+      }
+    },
+    {
+      "src": "rest-api-bfhl/api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "rest-api-bfhl/api/index.js" },
+    { "src": "/(.*)", "dest": "frontend-api-app/build/$1" }
+  ]
+}
